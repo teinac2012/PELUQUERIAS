@@ -55,7 +55,7 @@ export default function Services() {
     <section
       id="servicios"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="relative py-28 bg-onyx-2"
+      className="relative py-28 section-vivid-2"
     >
       {/* Ambient top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent" />

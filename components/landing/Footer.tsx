@@ -59,7 +59,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contacto" className="bg-onyx border-t border-white/5">
+    <footer id="contacto" className="section-vivid-3 border-t border-white/5">
       {/* ── CTA Banner ── */}
       <div className="border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
@@ -89,8 +89,8 @@ export default function Footer() {
               <div className="w-9 h-9 bg-gold-400 rounded-full flex items-center justify-center">
                 <Scissors className="w-4 h-4 text-onyx" strokeWidth={2.5} />
               </div>
-              <span className="text-white font-display text-xl font-bold">
-                Studio<span className="text-gold-400">Nova</span>
+              <span suppressHydrationWarning className="text-white font-display text-xl font-bold">
+                Mitchell<span className="text-gold-400">Nova</span>
               </span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-xs">
@@ -103,7 +103,7 @@ export default function Footer() {
               {[
                 { icon: MapPin, text: "Calle Gran Vía 45, 28013 Madrid" },
                 { icon: Phone, text: "+34 91 234 56 78" },
-                { icon: Mail,  text: "info@studionova.es" },
+                { icon: Mail,  text: "info@mitchellads.es" },
                 { icon: Clock, text: "Lun–Sáb: 9:00–20:00 · Dom: 10:00–14:00" },
               ].map(({ icon: Icon, text }, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -152,7 +152,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/5 pt-8">
           <p className="text-white/25 text-xs">
-            &copy; {year} StudioNova S.L. · Todos los derechos reservados · CIF B-12345678
+            &copy; {year} MitchellNova S.L. · Todos los derechos reservados · CIF B-12345678
           </p>
           <div className="flex gap-6">
             {["Privacidad", "Cookies", "Legal", "Accesibilidad"].map((item) => (

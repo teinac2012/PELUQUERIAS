@@ -15,7 +15,7 @@ export default function Gallery() {
       <section
         id="galeria"
         ref={sectionRef as React.RefObject<HTMLElement>}
-        className="relative py-28 bg-onyx-2"
+        className="relative py-28 section-vivid-3"
       >
         {/* Top divider */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />

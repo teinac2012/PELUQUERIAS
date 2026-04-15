@@ -1,15 +1,18 @@
-interface AnimeTimelineLike {
-  add: (params: Record<string, unknown>, offset?: string | number) => AnimeTimelineLike;
+export interface AnimeTimelineLike {
+  add: (
+    targets: string | Element[] | NodeListOf<Element> | Element,
+    options?: Record<string, unknown>,
+    position?: string | number
+  ) => AnimeTimelineLike;
 }
 
-export interface AnimeLike {
-  (params: Record<string, unknown>): unknown;
-  timeline: (params?: Record<string, unknown>) => AnimeTimelineLike;
-  stagger: (value: number, params?: Record<string, unknown>) => unknown;
+export interface AnimeModuleLike {
+  animate: (targets: string | Element[] | NodeListOf<Element> | Element | Record<string, unknown>, options?: Record<string, unknown>) => unknown;
+  stagger: (value: number, options?: Record<string, unknown>) => unknown;
+  createTimeline: (options?: Record<string, unknown>) => AnimeTimelineLike;
 }
 
-export async function loadAnime(): Promise<AnimeLike> {
+export async function loadAnime(): Promise<AnimeModuleLike> {
   const mod = await import("animejs");
-  const animeModule = (mod as { default?: unknown }).default ?? mod;
-  return animeModule as AnimeLike;
+  return mod as unknown as AnimeModuleLike;
 }

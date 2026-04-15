@@ -227,7 +227,7 @@ export const testimonials = [
     id: "t1",
     name: "Miguel Torres",
     role: "Cliente habitual",
-    text: "Llevo más de 2 años viniendo a StudioNova y nunca me han decepcionado. Carlos es un maestro con las tijeras. El ambiente es increíble y el servicio, de primera.",
+    text: "Llevo más de 2 años viniendo a MitchellNova y nunca me han decepcionado. Carlos es un maestro con las tijeras. El ambiente es increíble y el servicio, de primera.",
     rating: 5,
     service: "Corte + Barba",
     avatar: "https://ui-avatars.com/api/?name=Miguel+Torres&background=252525&color=c9a84c&size=100&bold=true",
@@ -299,14 +299,18 @@ export const revenueData: RevenueDataPoint[] = [
 
 /* ─── Gallery images ────────────────────────────────────────── */
 export const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80", alt: "Barbería de lujo" },
-  { src: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80", alt: "Interior StudioNova" },
-  { src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80", alt: "Corte profesional" },
-  { src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80", alt: "Salón de belleza" },
-  { src: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80", alt: "Peinado artístico" },
-  { src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80", alt: "Tratamiento capilar" },
-  { src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80", alt: "Barbería premium" },
-  { src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80", alt: "Estilo masculino" },
+  { src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80", alt: "Barbería premium con corte moderno" },
+  { src: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80", alt: "Interior MitchellNova" },
+  { src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80", alt: "Barbero trabajando degradado" },
+  { src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80", alt: "Peluquera realizando styling" },
+  { src: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80", alt: "Peinado femenino de evento" },
+  { src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80", alt: "Tratamiento capilar profesional" },
+  { src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80", alt: "Detalle de barbería de lujo" },
+  { src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=900&q=80", alt: "Estilista cortando cabello" },
+  { src: "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=80", alt: "Barber station con herramientas" },
+  { src: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=900&q=80", alt: "Secado y brushing en salón" },
+  { src: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80", alt: "Sillones de peluquería premium" },
+  { src: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80", alt: "Corte masculino con navaja" },
 ];
 
 /* ─── Pricing plans ─────────────────────────────────────────── */

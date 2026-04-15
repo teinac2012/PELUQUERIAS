@@ -23,6 +23,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const handleLinkClick = () => setMenuOpen(false);
 
   return (
@@ -30,7 +37,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-onyx/90 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/40"
+          ? "bg-onyx/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/40"
           : "bg-transparent"
       )}
     >
@@ -42,8 +49,8 @@ export default function Navbar() {
             <div className="w-9 h-9 bg-gold-400 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-gold-400/40">
               <Scissors className="w-4 h-4 text-onyx" strokeWidth={2.5} />
             </div>
-            <span className="text-white font-display text-xl font-bold tracking-wide">
-              Studio<span className="text-gold-400">Nova</span>
+            <span suppressHydrationWarning className="text-white font-display text-xl font-bold tracking-wide">
+              Mitchell<span className="text-gold-400">Nova</span>
             </span>
           </Link>
 
@@ -78,7 +85,7 @@ export default function Navbar() {
 
           {/* ── Mobile hamburger ── */}
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center text-white/80 hover:text-white transition-colors"
+            className="md:hidden w-10 h-10 flex items-center justify-center text-white/85 hover:text-white transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Abrir menú"
           >
@@ -87,35 +94,46 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Mobile drawer ── */}
+      {/* ── Mobile drawer overlay ── */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-400 ease-in-out",
-          menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          "md:hidden fixed inset-0 z-[60] transition-opacity duration-300",
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="bg-onyx-3/95 backdrop-blur-xl border-t border-white/5 px-6 pb-8 pt-6 flex flex-col gap-5">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-white/70 hover:text-gold-400 text-lg font-medium transition-colors"
-              onClick={handleLinkClick}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-2 flex flex-col gap-3">
+        <div
+          className="absolute inset-0 bg-black/65 backdrop-blur-sm"
+          onClick={() => setMenuOpen(false)}
+        />
+        <div
+          className={cn(
+            "absolute right-0 top-0 h-full w-[82%] max-w-[360px] border-l border-white/10 bg-[linear-gradient(165deg,#11151f_0%,#171423_52%,#111318_100%)] px-6 pt-24 pb-8 transition-transform duration-300",
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
+          <div className="flex flex-col gap-5">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-white/80 hover:text-gold-400 text-xl font-semibold transition-colors"
+                onClick={handleLinkClick}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-3">
             <Link
               href="/admin"
-              className="text-center text-white/50 text-sm font-medium border border-white/10 py-3 rounded-full hover:border-white/20 transition-colors"
+              className="text-center text-white/65 text-sm font-medium border border-white/15 py-3.5 rounded-full hover:border-white/30 transition-colors"
               onClick={handleLinkClick}
             >
               Panel de Administración
             </Link>
             <Link
               href="/booking"
-              className="text-center bg-gold-400 hover:bg-gold-300 text-onyx font-bold py-3.5 rounded-full transition-all"
+              className="btn-sheen text-center bg-gold-400 hover:bg-gold-300 text-onyx font-bold py-3.5 rounded-full transition-all"
               onClick={handleLinkClick}
             >
               Reservar Cita

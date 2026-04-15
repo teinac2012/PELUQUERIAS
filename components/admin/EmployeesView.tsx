@@ -26,9 +26,13 @@ function getEmployeeMetrics(memberId: string) {
 function EmployeeCard({
   member,
   onToggleAvailable,
+  onOpenPerformance,
+  onOpenAppointments,
 }: {
   member: StaffMember;
   onToggleAvailable: (id: string) => void;
+  onOpenPerformance?: (member: StaffMember) => void;
+  onOpenAppointments?: () => void;
 }) {
   const { monthlyRevenue, monthlyAppointments } = getEmployeeMetrics(member.id);
 
@@ -100,11 +104,17 @@ function EmployeeCard({
 
       {/* Actions */}
       <div className="flex gap-2">
-        <button className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/10 py-2 text-xs font-medium text-white/50 hover:border-gold-400/30 hover:text-gold-400 transition-all">
+        <button
+          onClick={() => onOpenAppointments?.()}
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/10 py-2 text-xs font-medium text-white/50 hover:border-gold-400/30 hover:text-gold-400 transition-all"
+        >
           <Calendar className="h-3.5 w-3.5" />
           Ver agenda
         </button>
-        <button className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/10 py-2 text-xs font-medium text-white/50 hover:border-green-400/30 hover:text-emerald-400 transition-all">
+        <button
+          onClick={() => onOpenPerformance?.(member)}
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/10 py-2 text-xs font-medium text-white/50 hover:border-green-400/30 hover:text-emerald-400 transition-all"
+        >
           <TrendingUp className="h-3.5 w-3.5" />
           Rendimiento
         </button>
@@ -113,7 +123,12 @@ function EmployeeCard({
   );
 }
 
-export default function EmployeesView() {
+interface EmployeesViewProps {
+  onOpenPerformance?: (member: StaffMember) => void;
+  onOpenAppointments?: () => void;
+}
+
+export default function EmployeesView({ onOpenPerformance, onOpenAppointments }: EmployeesViewProps) {
   const [teamData, setTeamData] = useState(staff);
 
   const toggleAvailable = (id: string) => {
@@ -146,6 +161,8 @@ export default function EmployeesView() {
             key={member.id}
             member={member}
             onToggleAvailable={toggleAvailable}
+            onOpenPerformance={onOpenPerformance}
+            onOpenAppointments={onOpenAppointments}
           />
         ))}
       </div>

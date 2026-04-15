@@ -13,7 +13,7 @@ export default function Team() {
     <section
       id="equipo"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="relative py-28 bg-onyx"
+      className="relative py-28 section-vivid-1"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}

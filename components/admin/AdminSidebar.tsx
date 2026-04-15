@@ -30,8 +30,8 @@ export default function AdminSidebar({ activeView, onNavigate }: Props) {
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold-400">
           <Scissors className="h-3.5 w-3.5 text-onyx" strokeWidth={2.5} />
         </div>
-        <span className="font-display text-base font-bold text-white">
-          Studio<span className="text-gold-400">Nova</span>
+        <span suppressHydrationWarning className="font-display text-base font-bold text-white">
+          Mitchell<span className="text-gold-400">Nova</span>
         </span>
         <span className="ml-auto rounded-full bg-gold-400/15 px-1.5 py-0.5 text-[9px] font-bold text-gold-400 uppercase tracking-wider">
           Admin
@@ -79,7 +79,7 @@ export default function AdminSidebar({ activeView, onNavigate }: Props) {
           </div>
           <div className="min-w-0">
             <p className="text-white/80 text-xs font-semibold truncate">Admin</p>
-            <p className="text-white/30 text-[10px] truncate">admin@studionova.es</p>
+            <p className="text-white/30 text-[10px] truncate">admin@mitchellads.es</p>
           </div>
           <LogOut className="ml-auto h-3.5 w-3.5 text-white/20 hover:text-red-400 transition-colors cursor-pointer shrink-0" />
         </div>

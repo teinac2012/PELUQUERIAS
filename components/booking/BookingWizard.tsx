@@ -545,21 +545,19 @@ function Step5({
   bookingId: string;
 }) {
   useEffect(() => {
-    loadAnime().then((anime) => {
-      anime({
-        targets: ".confirm-checkmark",
+    loadAnime().then(({ animate, stagger }) => {
+      animate(".confirm-checkmark", {
         scale: [0, 1],
         opacity: [0, 1],
         duration: 800,
-        easing: "easeOutBack",
+        ease: "outBack",
       });
-      anime({
-        targets: ".confirm-card > *",
+      animate(".confirm-card > *", {
         opacity: [0, 1],
-        translateY: [20, 0],
-        delay: anime.stagger(100, { start: 400 }),
+        y: [20, 0],
+        delay: stagger(100, { start: 400 }),
         duration: 600,
-        easing: "easeOutCubic",
+        ease: "outCubic",
       });
     });
   }, []);

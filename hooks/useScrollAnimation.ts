@@ -21,25 +21,23 @@ export function useScrollAnimation(threshold = 0.12) {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
 
-          const anime = await loadAnime();
+          const { animate, stagger } = await loadAnime();
           const targets = (entry.target as HTMLElement).querySelectorAll(".anim");
 
           if (targets.length > 0) {
-            anime({
-              targets,
+            animate(targets, {
               opacity: [0, 1],
-              translateY: [40, 0],
-              delay: anime.stagger(90, { start: 80 }),
+              y: [40, 0],
+              delay: stagger(90, { start: 80 }),
               duration: 750,
-              easing: "easeOutCubic",
+              ease: "outCubic",
             });
           } else {
-            anime({
-              targets: entry.target,
+            animate(entry.target as Element, {
               opacity: [0, 1],
-              translateY: [30, 0],
+              y: [30, 0],
               duration: 750,
-              easing: "easeOutCubic",
+              ease: "outCubic",
             });
           }
 
@@ -75,15 +73,14 @@ export function useCountAnimation(
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
 
-          const anime = await loadAnime();
+          const { animate } = await loadAnime();
           const counter = { value: start };
 
-          anime({
-            targets: counter,
+          animate(counter, {
             value: target,
             round: 1,
             duration,
-            easing: "easeOutExpo",
+            ease: "outExpo",
             update() {
               if (ref.current) {
                 ref.current.textContent = counter.value.toLocaleString("es-ES");

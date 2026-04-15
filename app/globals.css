@@ -57,6 +57,12 @@
   50%       { opacity: 0.3;  transform: scale(1.05); }
 }
 
+@keyframes auroraDrift {
+  0%   { transform: translate3d(-8%, -4%, 0) scale(1); }
+  50%  { transform: translate3d(10%, 6%, 0) scale(1.08); }
+  100% { transform: translate3d(-8%, -4%, 0) scale(1); }
+}
+
 /* ─── Base ──────────────────────────────────────────────────── */
 *,
 *::before,
@@ -67,7 +73,11 @@ html {
 }
 
 body {
-  background: #050505;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(201, 168, 76, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(212, 114, 138, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(58, 156, 214, 0.14), transparent 42%),
+    linear-gradient(140deg, #09090c 0%, #11131d 45%, #0d0d12 100%);
   color: #ffffff;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -107,6 +117,59 @@ body {
 .bg-grid-dots {
   background-image: radial-gradient(circle, rgba(201,168,76,0.15) 1px, transparent 1px);
   background-size: 32px 32px;
+}
+
+.section-vivid-1 {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(212, 114, 138, 0.16), transparent 34%),
+    radial-gradient(circle at 82% 30%, rgba(201, 168, 76, 0.12), transparent 36%),
+    linear-gradient(160deg, #0c0e14 0%, #14101a 52%, #0b1017 100%);
+}
+
+.section-vivid-2 {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(83, 192, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 12% 74%, rgba(201, 168, 76, 0.14), transparent 38%),
+    linear-gradient(160deg, #0b0f17 0%, #11141d 52%, #0d1016 100%);
+}
+
+.section-vivid-3 {
+  background:
+    radial-gradient(circle at 50% 14%, rgba(212, 114, 138, 0.11), transparent 34%),
+    radial-gradient(circle at 20% 86%, rgba(83, 192, 255, 0.1), transparent 40%),
+    linear-gradient(160deg, #0a0c12 0%, #121217 56%, #0b0e13 100%);
+}
+
+.mesh-aurora {
+  position: absolute;
+  inset: -15%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 30%, rgba(201, 168, 76, 0.24), transparent 42%),
+    radial-gradient(circle at 78% 40%, rgba(83, 192, 255, 0.18), transparent 44%),
+    radial-gradient(circle at 56% 72%, rgba(212, 114, 138, 0.2), transparent 44%);
+  filter: blur(36px);
+  opacity: 0.75;
+  animation: auroraDrift 18s ease-in-out infinite;
+}
+
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -80% auto -80% -120%;
+  width: 36%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: rotate(15deg);
+  transition: left 0.6s ease;
+}
+
+.btn-sheen:hover::after {
+  left: 140%;
 }
 
 /* Stat number */

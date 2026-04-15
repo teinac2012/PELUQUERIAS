@@ -27,7 +27,7 @@ export default function Testimonials() {
     <section
       id="testimonios"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="relative py-28 bg-onyx overflow-hidden"
+      className="relative py-28 section-vivid-1 overflow-hidden"
     >
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"

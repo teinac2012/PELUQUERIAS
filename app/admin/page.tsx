@@ -7,8 +7,19 @@ import DashboardView   from "@/components/admin/DashboardView";
 import AppointmentsView from "@/components/admin/AppointmentsView";
 import ClientsView     from "@/components/admin/ClientsView";
 import EmployeesView   from "@/components/admin/EmployeesView";
+import ServicesView    from "@/components/admin/ServicesView";
+import SettingsView    from "@/components/admin/SettingsView";
+import EmployeePerformanceView from "@/components/admin/EmployeePerformanceView";
+import { staff } from "@/lib/data";
 
-type AdminView = "dashboard" | "appointments" | "clients" | "employees" | "services" | "settings";
+type AdminView =
+  | "dashboard"
+  | "appointments"
+  | "clients"
+  | "employees"
+  | "services"
+  | "settings"
+  | "employee-performance";
 
 const VIEW_TITLES: Record<AdminView, string> = {
   dashboard:    "Dashboard",
@@ -17,32 +28,43 @@ const VIEW_TITLES: Record<AdminView, string> = {
   employees:    "Empleados",
   services:     "Servicios",
   settings:     "Configuración",
+  "employee-performance": "Rendimiento",
 };
-
-/* Placeholder for unimplemented views */
-function PlaceholderView({ title }: { title: string }) {
-  return (
-    <div className="flex flex-col items-center justify-center h-80 text-center p-8">
-      <div className="h-16 w-16 rounded-2xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center mb-5">
-        <Search className="h-7 w-7 text-gold-400/60" />
-      </div>
-      <h2 className="font-display text-xl font-bold text-white mb-2">{title}</h2>
-      <p className="text-white/35 text-sm">Esta sección estará disponible en la próxima actualización.</p>
-    </div>
-  );
-}
 
 export default function AdminPage() {
   const [view,         setView]         = useState<AdminView>("dashboard");
   const [sidebarOpen,  setSidebarOpen]  = useState(false);
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState<string | null>(null);
+
+  const selectedEmployee = selectedEmployeeId
+    ? staff.find((member) => member.id === selectedEmployeeId) ?? null
+    : null;
 
   const renderView = () => {
     switch (view) {
       case "dashboard":    return <DashboardView />;
       case "appointments": return <AppointmentsView />;
       case "clients":      return <ClientsView />;
-      case "employees":    return <EmployeesView />;
-      default:             return <PlaceholderView title={VIEW_TITLES[view]} />;
+      case "employees":
+        return (
+          <EmployeesView
+            onOpenAppointments={() => setView("appointments")}
+            onOpenPerformance={(member) => {
+              setSelectedEmployeeId(member.id);
+              setView("employee-performance");
+            }}
+          />
+        );
+      case "services": return <ServicesView />;
+      case "settings": return <SettingsView />;
+      case "employee-performance":
+        return (
+          <EmployeePerformanceView
+            member={selectedEmployee}
+            onBack={() => setView("employees")}
+          />
+        );
+      default:             return null;
     }
   };
 
@@ -87,9 +109,13 @@ export default function AdminPage() {
 
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/40 text-sm">
-            <span>StudioNova</span>
+            <span>MitchellNova</span>
             <span>/</span>
-            <span className="text-white font-medium">{VIEW_TITLES[view]}</span>
+            <span className="text-white font-medium">
+              {view === "employee-performance" && selectedEmployee
+                ? `${VIEW_TITLES[view]} · ${selectedEmployee.name}`
+                : VIEW_TITLES[view]}
+            </span>
           </div>
 
           <div className="ml-auto flex items-center gap-3">

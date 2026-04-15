@@ -15,13 +15,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "StudioNova — Barbershop & Salón de Belleza Premium · Madrid",
+  title: "MitchellNova — Barbershop & Salón de Belleza Premium · Madrid",
   description:
-    "StudioNova: Tu barbería y salón de belleza de lujo en el corazón de Madrid. Reserva tu cita online. Cortes, barba, coloración, tratamientos y más.",
+    "MitchellNova: Tu barbería y salón de belleza de lujo en el corazón de Madrid. Reserva tu cita online. Cortes, barba, coloración, tratamientos y más.",
   keywords: ["barbería", "salón de belleza", "Madrid", "reservas online", "corte de pelo"],
   openGraph: {
-    title: "StudioNova — Barbershop & Salón Premium",
-    description: "Reserva tu cita en StudioNova, la referencia del cuidado personal en Madrid.",
+    title: "MitchellNova — Barbershop & Salón Premium",
+    description: "Reserva tu cita en MitchellNova, la referencia del cuidado personal en Madrid.",
     type: "website",
     locale: "es_ES",
   },

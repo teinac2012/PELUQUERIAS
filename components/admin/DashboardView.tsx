@@ -112,14 +112,13 @@ export default function DashboardView() {
   const vipCount = clients.filter((c) => c.vip).length;
 
   useEffect(() => {
-    loadAnime().then((anime) => {
-      anime({
-        targets: ".kpi-card",
+    loadAnime().then(({ animate, stagger }) => {
+      animate(".kpi-card", {
         opacity: [0, 1],
-        translateY: [20, 0],
-        delay: anime.stagger(80),
+        y: [20, 0],
+        delay: stagger(80),
         duration: 600,
-        easing: "easeOutCubic",
+        ease: "outCubic",
       });
     });
   }, []);

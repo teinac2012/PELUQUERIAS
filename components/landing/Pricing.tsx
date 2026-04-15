@@ -14,7 +14,7 @@ export default function Pricing() {
     <section
       id="precios"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="relative py-28 bg-onyx-2"
+      className="relative py-28 section-vivid-2"
     >
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
 
@@ -136,8 +136,8 @@ export default function Pricing() {
           Todos los planes incluyen SSL, copias de seguridad diarias y actualizaciones automáticas.
           <br />
           <span className="text-white/20">¿Tienes preguntas? Escríbenos a{" "}
-            <a href="mailto:hola@studionova.es" className="text-gold-400/60 hover:text-gold-400 transition-colors">
-              hola@studionova.es
+            <a href="mailto:hola@mitchellads.es" className="text-gold-400/60 hover:text-gold-400 transition-colors">
+              hola@mitchellads.es
             </a>
           </span>
         </div>
